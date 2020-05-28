@@ -58,8 +58,8 @@ jobs:
       run: mkdir module-zip
     - name: zip module directory 
       uses: montudor/action-zip@v0.1.0
-        with:
-          args: zip -qq -r monarc.zip module/Monarc module-zip
+      with:
+        args: zip -qq -r monarc.zip module/Monarc module-zip
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
