@@ -59,11 +59,11 @@ jobs:
     - name: zip module directory 
       uses: montudor/action-zip@v0.1.0
       with:
-        args: zip -qq -r monarc.zip module/Monarc module-zip
+        args: zip -qq -r  ./module-zip/monarc-module.zip module/Monarc
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: module-zip
+        name: module
         path: module-zip
 
    
