@@ -43,27 +43,18 @@ jobs:
     - name: Install PHP dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Create synlinks for MONARC PHP modules
-      run: |
-        mkdir -p module/Monarc
-        cd module/Monarc
-        ln -s ./../../vendor/monarc/core Core
-        ln -s ./../../vendor/monarc/frontoffice FrontOffice
-        cd ../..
+ 
 
-
-    - name: Set MONARC configuration file
-      run: cp ./config/autoload/local.php.dist ./config/autoload/local.php
-    - name: Create module-zip 
-      run: mkdir module-zip
+    - name: Create monarc-zip 
+      run: mkdir monarc-zip
     - name: zip module directory 
       uses: montudor/action-zip@v0.1.0
       with:
-        args: zip -qq -r  ./module-zip/monarc-module.zip module/Monarc
+        args: zip -qq -r  ./monarc-zip/monarc-module.zip .
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: module
+        name: monarc
         path: module-zip
 
    
